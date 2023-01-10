@@ -3,6 +3,7 @@ import loginImage from "../assets/login.svg";
 import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { createUser } from "../feaatures/auth/authSlice";
 
 const Signup = () => {
   const { handleSubmit, register, reset, control } = useForm();
@@ -28,6 +29,7 @@ const Signup = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    dispatch(createUser({email: data.email, password: data.password}))
   };
 
   return (
